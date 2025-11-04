@@ -35,12 +35,3 @@ jobs:
           PANTRY_ID: ${{ secrets.PANTRY_ID }}
         run: |
           python update_key/fetch.py
-
-      - name: Upload debug file
-        if: failure() 
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug-files
-          path: |
-            ./c1.png
-            ./c2.png
