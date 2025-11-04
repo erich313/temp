@@ -42,6 +42,5 @@ jobs:
         with:
           name: debug-files
           path: |
-            ./debug_page_load.png
-            ./check.png
             ./c1.png
+            ./c2.png
