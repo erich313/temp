@@ -1,4 +1,4 @@
-name: Taipower Scraper
+name: Key and Cookie Fetcher
 
 on:
   workflow_dispatch:
