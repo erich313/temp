@@ -32,6 +32,7 @@ with SB(uc=True) as sb:  # demo=True if GUI needed
     print("Login Successful")
     
     sb.sleep(15)
+    sb.save_screenshot("c1.png")
     key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=10)
     key = key[key.rindex("/")+1:-2]
 
