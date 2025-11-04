@@ -12,7 +12,7 @@ with SB(uc=True, test=True, headless=True) as sb:  # demo=True if GUI needed
     url = "https://service.taipower.com.tw/ebpps2/login"
     sb.uc_open_with_reconnect(url, 4)
     # sb.uc_gui_click_captcha()  # error in headless modeS
-
+    sb.save_screenshot("debug_page_load.png")
     sb.assert_element('label[for="username"]', timeout=15)
     sb.type('#username', MY_USERNAME)
     sb.assert_element('label[for="password"]', timeout=15)
