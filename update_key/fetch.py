@@ -10,7 +10,7 @@ PANTRY_ID = os.environ.get("PANTRY_ID")
 
 with SB(uc=True) as sb:  # demo=True if GUI needed
     url = "https://service.taipower.com.tw/ebpps2/login"
-    sb.uc_open_with_reconnect(url, 10)  # UC mode
+    sb.uc_open_with_reconnect(url, 4)  # UC mode
     sb.uc_gui_click_captcha()  # error in headless mode
 
     sb.save_screenshot("c1.png")
