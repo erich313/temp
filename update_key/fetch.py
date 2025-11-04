@@ -12,13 +12,17 @@ with SB(uc=True, test=True, headless=True) as sb:  # demo=True if GUI needed
     url = "https://service.taipower.com.tw/ebpps2/login"
     sb.uc_open_with_reconnect(url, 4)
     # sb.uc_gui_click_captcha()  # error in headless modeS
-    sb.save_screenshot("debug_page_load.png")
-    sb.assert_element('label[for="username"]', timeout=15)
-    sb.type('#username', MY_USERNAME)
-    sb.assert_element('label[for="password"]', timeout=15)
-    sb.type('#password', MY_PASSWORD)
-    sb.sleep(15)
-    sb.click('button:contains("登入")', timeout=15)
+    try:
+        sb.assert_element('label[for="username"]', timeout=15)
+        sb.type('#username', MY_USERNAME)
+        sb.assert_element('label[for="password"]', timeout=15)
+        sb.type('#password', MY_PASSWORD)
+        sb.sleep(15)
+        sb.click('button:contains("登入")', timeout=15)
+    except Exception as e:
+        print(e)
+        sb.save_screenshot("debug_page_load.png")
+        raise e
 
     key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=15)
     key = key[key.rindex("/")+1:-2]
