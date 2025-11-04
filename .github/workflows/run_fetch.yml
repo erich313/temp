@@ -43,3 +43,4 @@ jobs:
           name: debug-files
           path: |
             ./c1.png
+            ./check.png

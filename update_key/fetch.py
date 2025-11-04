@@ -17,6 +17,7 @@ with SB(uc=True) as sb:  # demo=True if GUI needed
             print("Page loaded successfully")
             break
         except Exception as e:
+            sb.save_screenshot("check.png")
             print(f"Attempt failed")
             if attempt == 2:
                 raise e  # Raise the error in the last attempt
