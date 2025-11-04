@@ -13,6 +13,7 @@ with SB(uc=True) as sb:  # demo=True if GUI needed
     for attempt in range(3):
         try:
             sb.uc_open_with_reconnect(url, 4)  # UC mode
+            sb.uc_gui_click_captcha()  # error in headless mode
             sb.assert_element('label[for="username"]', timeout=5)
             print("Page loaded successfully")
             break
@@ -21,8 +22,6 @@ with SB(uc=True) as sb:  # demo=True if GUI needed
             print(f"Attempt failed")
             if attempt == 2:
                 raise e  # Raise the error in the last attempt
-            
-    sb.uc_gui_click_captcha()  # error in headless mode
 
     sb.assert_element('label[for="username"]', timeout=10)
     sb.type('#username', MY_USERNAME)
