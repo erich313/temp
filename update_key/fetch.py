@@ -13,17 +13,18 @@ with SB(uc=True) as sb:  # demo=True if GUI needed
     sb.uc_open_with_reconnect(url, 10)  # UC mode
     sb.uc_gui_click_captcha()  # error in headless mode
 
+    sb.save_screenshot("c1.png")
     sb.assert_element('label[for="username"]', timeout=15)
     sb.type('#username', MY_USERNAME)
     sb.assert_element('label[for="password"]', timeout=15)
     sb.type('#password', MY_PASSWORD)
     sb.sleep(15)
-    sb.save_screenshot("c1.png")
+    sb.save_screenshot("c2.png")
     sb.click('button:contains("登入")', timeout=15)
     print("Login Successful")
     
     sb.sleep(15)
-    sb.save_screenshot("c2.png")
+    sb.save_screenshot("c3.png")
     key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=15)
     key = key[key.rindex("/")+1:-2]
 
