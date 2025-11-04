@@ -10,7 +10,7 @@ PANTRY_ID = os.environ.get("PANTRY_ID")
 
 with SB(uc=True, headless=True) as sb:  # demo=True if GUI needed
     url = "https://service.taipower.com.tw/ebpps2/login"
-    sb.uc_open_with_reconnect(url, 4)
+    sb.uc_open_with_reconnect(url, 10)
     # sb.uc_gui_click_captcha()  # error in headless modeS
     try:
         sb.assert_element('label[for="username"]', timeout=15)
