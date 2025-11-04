@@ -24,7 +24,9 @@ with SB(uc=True, headless=True) as sb:  # demo=True if GUI needed
         print(e)
         sb.save_screenshot("debug_page_load.png")
         raise e
+    
     sb.sleep(15)
+    sb.save_screenshot("check.png")
     key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=15)
     key = key[key.rindex("/")+1:-2]
 

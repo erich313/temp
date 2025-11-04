@@ -26,7 +26,6 @@ jobs:
 
       - name: Install browser driver
         run: |
-          sudo apt install google-chrome-stable
           seleniumbase install chromedriver
 
       - name: Fetch data
@@ -44,3 +43,4 @@ jobs:
           name: debug-files
           path: |
             ./debug_page_load.png
+            ./check.png
