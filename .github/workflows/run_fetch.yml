@@ -44,3 +44,4 @@ jobs:
           path: |
             ./debug_page_load.png
             ./check.png
+            ./c1.png

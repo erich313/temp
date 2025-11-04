@@ -18,6 +18,7 @@ with SB(uc=True, headless=True) as sb:  # demo=True if GUI needed
         sb.assert_element('label[for="password"]', timeout=15)
         sb.type('#password', MY_PASSWORD)
         sb.sleep(15)
+        sb.save_screenshot("c1.png")
         sb.click('button:contains("登入")', timeout=15)
         print("Login Successful")
     except Exception as e:
