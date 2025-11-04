@@ -17,14 +17,11 @@ with SB(uc=True) as sb:  # demo=True if GUI needed
     sb.type('#username', MY_USERNAME)
     sb.assert_element('label[for="password"]', timeout=15)
     sb.type('#password', MY_PASSWORD)
-    sb.save_screenshot("c1.png")
     sb.sleep(15)
-    sb.save_screenshot("c1.png")
     sb.click('button:contains("登入")', timeout=15)
     print("Login Successful")
     
     sb.sleep(15)
-    sb.save_screenshot("c2.png")
     key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=15)
     key = key[key.rindex("/")+1:-2]
 
