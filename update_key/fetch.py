@@ -19,11 +19,12 @@ with SB(uc=True, headless=True) as sb:  # demo=True if GUI needed
         sb.type('#password', MY_PASSWORD)
         sb.sleep(15)
         sb.click('button:contains("登入")', timeout=15)
+        print("Login Successful")
     except Exception as e:
         print(e)
         sb.save_screenshot("debug_page_load.png")
         raise e
-
+    sb.sleep(15)
     key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=15)
     key = key[key.rindex("/")+1:-2]
 
