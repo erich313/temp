@@ -2,16 +2,13 @@ from seleniumbase import SB
 from datetime import date
 import os
 import requests
-from selenium.webdriver.chrome.options import Options
+
 
 MY_USERNAME = os.environ.get("TP_USERNAME") 
 MY_PASSWORD = os.environ.get("TP_PASSWORD")
 PANTRY_ID = os.environ.get("PANTRY_ID")
 
-chrome_options = Options()
-chrome_options.add_experimental_option("prefs", {"intl.accept_languages": "zh-TW,zh"})
-
-with SB(uc=True, headless=True, chrome_options=chrome_options) as sb:  # demo=True if GUI needed
+with SB(uc=True, headless=True) as sb:  # demo=True if GUI needed
     url = "https://service.taipower.com.tw/ebpps2/login"
     sb.uc_open_with_reconnect(url, 10)
     # sb.uc_gui_click_captcha()  # error in headless modeS
