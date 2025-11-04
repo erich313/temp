@@ -10,21 +10,21 @@ PANTRY_ID = os.environ.get("PANTRY_ID")
 
 with SB(uc=True) as sb:  # demo=True if GUI needed
     url = "https://service.taipower.com.tw/ebpps2/login"
-
-    sb.uc_open_with_reconnect(url, 4)  # UC mode
+    sb.uc_open_with_reconnect(url, 10)  # UC mode
     sb.uc_gui_click_captcha()  # error in headless mode
 
-    sb.assert_element('label[for="username"]', timeout=10)
+    sb.assert_element('label[for="username"]', timeout=15)
     sb.type('#username', MY_USERNAME)
-    sb.assert_element('label[for="password"]', timeout=10)
+    sb.assert_element('label[for="password"]', timeout=15)
     sb.type('#password', MY_PASSWORD)
-    sb.sleep(10)
-    sb.click('button:contains("登入")', timeout=10)
+    sb.sleep(15)
+    sb.save_screenshot("c1.png")
+    sb.click('button:contains("登入")', timeout=15)
     print("Login Successful")
     
     sb.sleep(15)
-    sb.save_screenshot("c1.png")
-    key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=10)
+    sb.save_screenshot("c2.png")
+    key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=15)
     key = key[key.rindex("/")+1:-2]
 
     # Error handling
