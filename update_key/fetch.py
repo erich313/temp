@@ -7,9 +7,10 @@ import requests
 MY_USERNAME = os.environ.get("TP_USERNAME") 
 MY_PASSWORD = os.environ.get("TP_PASSWORD")
 PANTRY_ID = os.environ.get("PANTRY_ID")
+PROXY = os.environ.get("PROXY")
 
-with SB(uc=True, demo=True) as sb:  # demo=True if GUI needed
-    url = "https://gitlab.com/users/sign_in"
+with SB(uc=True, demo=True, proxy=PROXY) as sb:  # demo=True if GUI needed
+    url = "https://service.taipower.com.tw/ebpps2/login"
     sb.uc_open_with_reconnect(url, 4)  # UC mode
     sb.uc_gui_click_captcha()  # error in headless mode
 
