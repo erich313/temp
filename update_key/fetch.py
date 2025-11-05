@@ -13,13 +13,14 @@ with SB(uc=True, demo=True) as sb:  # demo=True if GUI needed
     sb.uc_open_with_reconnect(url, 4)  # UC mode
     sb.uc_gui_click_captcha()  # error in headless mode
 
-    sb.sleep(10)
+    sb.sleep(5)
     sb.save_screenshot("c1.png")
     sb.assert_element('label[for="username"]', timeout=15)
     sb.type('#username', MY_USERNAME)
     sb.assert_element('label[for="password"]', timeout=15)
     sb.type('#password', MY_PASSWORD)
     sb.sleep(15)
+    sb.uc_gui_click_captcha()  # error in headless mode
     sb.save_screenshot("c2.png")
     sb.click('button:contains("登入")', timeout=15)
     print("Login Successful")
