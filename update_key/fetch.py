@@ -13,6 +13,7 @@ with SB(uc=True) as sb:  # demo=True if GUI needed
     sb.uc_open_with_reconnect(url, 4)  # UC mode
     sb.uc_gui_click_captcha()  # error in headless mode
 
+    sb.sleep(10)
     sb.save_screenshot("c1.png")
     sb.assert_element('label[for="username"]', timeout=15)
     sb.type('#username', MY_USERNAME)
