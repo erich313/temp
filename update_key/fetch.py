@@ -19,8 +19,9 @@ with SB(uc=True, demo=True) as sb:  # demo=True if GUI needed
     sb.type('#username', MY_USERNAME)
     sb.assert_element('label[for="password"]', timeout=15)
     sb.type('#password', MY_PASSWORD)
-    sb.sleep(15)
+    sb.sleep(10)
     sb.uc_gui_click_captcha()  # error in headless mode
+    sb.sleep(10)
     sb.save_screenshot("c2.png")
     sb.click('button:contains("登入")', timeout=15)
     print("Login Successful")
