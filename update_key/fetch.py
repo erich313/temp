@@ -15,49 +15,48 @@ with SB(uc=True, demo=True) as sb:  # demo=True if GUI needed
 
     sb.sleep(5)
     sb.save_screenshot("c1.png")
-    raise NotImplementedError("Testing")
-    # sb.assert_element('label[for="username"]', timeout=15)
-    # sb.type('#username', MY_USERNAME)
-    # sb.assert_element('label[for="password"]', timeout=15)
-    # sb.type('#password', MY_PASSWORD)
-    # sb.sleep(10)
-    # sb.uc_gui_click_captcha()  # error in headless mode
-    # sb.sleep(10)
-    # sb.save_screenshot("c2.png")
-    # sb.click('button:contains("登入")', timeout=15)
-    # print("Login Successful")
+    sb.assert_element('label[for="username"]', timeout=15)
+    sb.type('#username', MY_USERNAME)
+    sb.assert_element('label[for="password"]', timeout=15)
+    sb.type('#password', MY_PASSWORD)
+    sb.sleep(10)
+    sb.uc_gui_click_captcha()  # error in headless mode
+    sb.sleep(10)
+    sb.save_screenshot("c2.png")
+    sb.click('button:contains("登入")', timeout=15)
+    print("Login Successful")
     
-    # sb.sleep(15)
-    # sb.save_screenshot("c3.png")
-    # key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=15)
-    # key = key[key.rindex("/")+1:-2]
+    sb.sleep(15)
+    sb.save_screenshot("c3.png")
+    key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=15)
+    key = key[key.rindex("/")+1:-2]
 
-    # # Error handling
-    # # try:
-    # #     key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=15)
-    # # except Exception as e:
-    # #     print("Login Failed")
-    # #     sb.save_screenshot("error_screenshot.png")
-    # #     raise e
+    # Error handling
+    # try:
+    #     key = sb.get_attribute('input[value="智慧電表(AMI)專區"]', "onclick", timeout=15)
+    # except Exception as e:
+    #     print("Login Failed")
+    #     sb.save_screenshot("error_screenshot.png")
+    #     raise e
 
-    # # KEY
-    # print(key)
+    # KEY
+    print(key)
     
-    # today = date.today()
-    # sb.open(f"https://service.taipower.com.tw/ebpps2/amichart/api/fifteenlist?enkey={key}&day={today}")  
-    # raw_cookie_json = sb.get_cookies()
-    # # sb.save_cookies(name="cookies.txt")  # another option is to save raw cookies to a .txt file
+    today = date.today()
+    sb.open(f"https://service.taipower.com.tw/ebpps2/amichart/api/fifteenlist?enkey={key}&day={today}")  
+    raw_cookie_json = sb.get_cookies()
+    # sb.save_cookies(name="cookies.txt")  # another option is to save raw cookies to a .txt file
 
-    # cookie_header_string = "; ".join([f"{cookie['name']}={cookie['value']}" for cookie in raw_cookie_json])
-    # # COOKIE
-    # print(cookie_header_string)
+    cookie_header_string = "; ".join([f"{cookie['name']}={cookie['value']}" for cookie in raw_cookie_json])
+    # COOKIE
+    print(cookie_header_string)
 
-    # data = {
-    # 'key': key,
-    # 'cookie': cookie_header_string
-    # }
+    data = {
+    'key': key,
+    'cookie': cookie_header_string
+    }
 
-    # r = requests.put(f'https://getpantry.cloud/apiv1/pantry/{os.environ.get('PANTRY_ID')}/basket/update_key', json=data)
+    r = requests.put(f'https://getpantry.cloud/apiv1/pantry/{os.environ.get('PANTRY_ID')}/basket/update_key', json=data)
 
-    # # UPDATE STATUS
-    # print(r.status_code)
+    # UPDATE STATUS
+    print(r.status_code)
