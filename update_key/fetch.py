@@ -11,6 +11,7 @@ PROXY = os.environ.get("PROXY")
 
 with SB(uc=True, demo=True, xvfb=True) as sb:  # demo=True if GUI needed
     url = "https://service.taipower.com.tw/ebpps2/login"
+    url = "https://gitlab.com/users/sign_in"
     sb.uc_open_with_reconnect(url, 4)  # UC mode
     sb.uc_gui_click_captcha()  # error in headless mode
 
