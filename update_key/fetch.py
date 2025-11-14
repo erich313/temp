@@ -9,7 +9,7 @@ MY_PASSWORD = os.environ.get("TP_PASSWORD")
 PANTRY_ID = os.environ.get("PANTRY_ID")
 PROXY = os.environ.get("PROXY")
 
-with SB(uc=True, demo=True, xvfb=True) as sb:  # demo=True if GUI needed
+with SB(uc=True, demo=True) as sb:  # demo=True if GUI needed
     url = "https://service.taipower.com.tw/ebpps2/login"
     url = "https://gitlab.com/users/sign_in"
     sb.uc_open_with_reconnect(url, 4)  # UC mode
