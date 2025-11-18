@@ -33,6 +33,7 @@ jobs:
           TP_USERNAME: ${{ secrets.TP_USERNAME }}
           TP_PASSWORD: ${{ secrets.TP_PASSWORD }}
           PANTRY_ID: ${{ secrets.PANTRY_ID }}
+          PROXY: ${{ secrets.PROXY }}
         run: |
           python update_key/fetch.py
 
